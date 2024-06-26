@@ -1,0 +1,12 @@
+bjob-out/gpu_22076853.err
+*.err
+*.out
+*.pyc
+wandb
+root
+*.pt
+data
+lightning_logs
+*.gz
+*.meta
+cifar-10-batches-py

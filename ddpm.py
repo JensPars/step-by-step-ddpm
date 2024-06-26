@@ -22,10 +22,6 @@ model = UNet2DModel()
 
 class DiffDataset(Dataset):
     def __init__(self):
-        #self.dataset = torchvision.datasets.CIFAR10(
-        #    root="cifar-10-batches-py", download=True, transform=transform
-        #)
-        #self.dataset = torchvision.datasets.MNIST("root", transform=ToTensor())
         self.dataset = SpritesDataset(transform, seed=0)
 
     def __len__(self):
@@ -39,8 +35,6 @@ class DiffDataset(Dataset):
 class DiffModel(pl.LightningModule):
     def __init__(self):
         super().__init__()
-        #self.model = UNet2DModel()
-        #self.model = UNet(img_size=28, c_in=1, c_out=1, device="cuda")#UNet2DModel()
         self.model =  UNet(device="cuda")
         self.loss_fn = torch.nn.MSELoss()
         self.e = 0
@@ -74,8 +68,6 @@ class DiffModel(pl.LightningModule):
     def on_validation_epoch_end(self):
         #self.metric.reset()
         self.sample(viz=True)
-        
-        
         
         
     
